@@ -12,9 +12,7 @@ SALIDA: qué vocales aparecen en el texto
 '''
 
 def cuenta_vocales(texto):
-    #primero vamos a definir errores si el texto contiene mayúsculas o caracteres numéricos empleando los métodos str. vistos
-    if not str.isalpha(texto):
-        print("ERROR: para poder emplear esta función los caracteres deben ser alfabéticos")
+    #primero vamos a definir error si el texto contiene mayúsculas empleando los métodos str. vistos
     if not str.islower(texto):
         print("para emplear esta función los caracteres deben estar en minúscula, por tanto, convertiremos su texto a minúsculas")
         texto = str.lower(texto)
@@ -31,8 +29,12 @@ def cuenta_vocales(texto):
     if "u" in texto:
         resultado = resultado + "u, "
     #creamos un último if para devolver cuando no hay vocales y empleamos operadores lógicos
+    #y en el else quitamos la coma final y ponemos un punto.
     if resultado == "En el texto aparecen las siguientes vocales: ":
         resultado = "En el texto no hay ninguna vocal"
+    else:
+        resultado = resultado[:-2] + "."
+
     return resultado
 
 print("prueba 1: " + cuenta_vocales("Estamos todos aqui hoy reunidos"))
